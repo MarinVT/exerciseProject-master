@@ -15,7 +15,7 @@ public class PlanCalculatorPage extends BasePage {
     private WebElement planCalculatorTitleLocator;
 
     // ROAD LENGTH LOCATOR
-    @FindBy(xpath = "//span[@class='jss5'][contains(.,'1 km')]")
+    @FindBy(xpath = "(//span[contains(@aria-valuemin,'1')])[1]")
     private WebElement sliderRoadLengthLocator;
 
     // Number of Signalized Intersections LOCATOR

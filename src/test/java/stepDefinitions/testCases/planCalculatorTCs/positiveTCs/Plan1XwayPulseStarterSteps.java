@@ -28,7 +28,7 @@ public class Plan1XwayPulseStarterSteps {
     }
 
     @And("User sets Road Length equal to value of Twenty {int} km")
-    public void user_sets_road_length_equal_to_value_of_twenty_km(Integer value) throws InterruptedException {
+    public void user_sets_road_length_equal_to_value_of_twenty_km(int value) throws InterruptedException {
         Thread.sleep(3000);
         planCalculatorPage.slideToSpecificNumber(value);
         Thread.sleep(3000);

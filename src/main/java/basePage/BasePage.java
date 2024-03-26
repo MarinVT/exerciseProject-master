@@ -231,9 +231,11 @@ public class BasePage {
     }
 
     // Slide method
-    public void sliderLeftRight(WebElement fieldLocator, int numberMoveTo) {
-        Actions builder = new Actions(getDriver());
-        builder.moveToElement(fieldLocator, 0, 0).clickAndHold().build().perform();
+    public void sliderLeftRight(WebElement sliderElement, int numberMoveTo) {
+        waitVisibilityOfWebElement(sliderElement);
+        Actions moveSlider = new Actions(getDriver());
+        moveSlider.clickAndHold(sliderElement).pause(3).moveToElement(sliderElement)
+                .dragAndDropBy(sliderElement, 0, numberMoveTo).perform();
     }
 
     /*
