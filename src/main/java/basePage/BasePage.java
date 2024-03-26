@@ -238,6 +238,15 @@ public class BasePage {
                 .dragAndDropBy(sliderElement, 0, numberMoveTo).perform();
     }
 
+    // Slide method 2
+    public void sliderLeftRight2(WebElement sliderElement, int numberMoveTo) {
+        waitVisibilityOfWebElement(sliderElement);
+        Actions moveSlider = new Actions(getDriver());
+        moveSlider.moveToElement(sliderElement).dragAndDropBy(sliderElement, 1,numberMoveTo).perform();
+    }
+
+
+
     /*
     Get desired values method and returns list with items - LINK BELOW
     https://www.testingminibytes.com/courses/java-8-for-automation-qa-power-of-functional-programming/optimising-gettext-gettagname-getattribute-methods-in-selenium
