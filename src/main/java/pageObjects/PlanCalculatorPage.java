@@ -15,8 +15,8 @@ public class PlanCalculatorPage extends BasePage {
     private WebElement planCalculatorTitleLocator;
 
     // ROAD LENGTH LOCATOR
-//    @FindBy(xpath = "//span[@class='MuiSlider-thumb MuiSlider-thumbColorPrimary jss2 jss1'][contains(.,'1 km')]")
-    @FindBy(xpath = "(//span[contains(@aria-valuemin,'1')])[1]")
+//    @FindBy(xpath = "//span[@class='jss5'][contains(.,'1 km')]")
+    @FindBy(xpath = "(//span[@role='slider'])[1]")
     private WebElement sliderRoadLengthLocator;
 
     // Number of Signalized Intersections LOCATOR
@@ -83,7 +83,8 @@ public class PlanCalculatorPage extends BasePage {
 
     public void slideToSpecificNumber(int value) {
         waitVisibilityOfWebElement(sliderRoadLengthLocator);
-        moveSliderKey(sliderRoadLengthLocator, value);
+        moveSliderKey2(sliderRoadLengthLocator, true, value);
     }
+
 
 }

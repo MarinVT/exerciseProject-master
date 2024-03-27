@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utils.Global_Vars;
 
+import java.security.Key;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -241,21 +242,36 @@ public class BasePage {
     public void sliderLeftRight2(WebElement sliderElement, int numberMoveTo) {
         waitVisibilityOfWebElement(sliderElement);
         Actions moveSlider = new Actions(getDriver());
-        moveSlider.moveToElement(sliderElement)
-                .clickAndHold()
-                .dragAndDropBy(sliderElement, 8, numberMoveTo).perform();
+        moveSlider
+                .dragAndDropBy(sliderElement, 0, numberMoveTo).perform();
     }
 
-    public void moveSliderKey(WebElement sliderElement, int keyPressTimes) {
+    public void moveSliderKey(WebElement sliderElement, boolean isRightSliding, int keyPressTimes) {
         waitVisibilityOfWebElement(sliderElement);
         Actions moveSlider = new Actions(getDriver());
-//        moveSlider.pause(2);
-//        moveSlider.click(sliderElement).build().perform();
 
-        for(int iCount = 0; iCount <= keyPressTimes; iCount++) {
-            moveSlider.click(sliderElement).sendKeys(Keys.ARROW_UP).perform();
+        if (isRightSliding) {
+            for (int i = 0; i < keyPressTimes; i++) {
+                moveSlider.sendKeys(Keys.ARROW_RIGHT).perform();
+            }
+
         }
+
     }
+
+    public void moveSliderKey2(WebElement sliderElement, boolean isRightSliding, int keyPressTimes) {
+        waitVisibilityOfWebElement(sliderElement);
+
+        if (isRightSliding) {
+            for (int i = 1; i < keyPressTimes; i++) {
+                sliderElement.sendKeys(Keys.ARROW_RIGHT);
+            }
+
+        }
+
+    }
+
+
 
 //    Actions action = new Actions(driver);
 //        for (int i = 0; i < 5; i++)
