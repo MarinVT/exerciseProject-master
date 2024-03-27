@@ -20,7 +20,7 @@ public class PlanCalculatorPage extends BasePage {
     private WebElement sliderRoadLengthLocator;
 
     // Number of Signalized Intersections LOCATOR
-    @FindBy(xpath = "(//span[@class='jss5'][contains(.,'1')])[2]")
+    @FindBy(xpath = "(//span[@role='slider'])[2]")
     private WebElement sliderSignalizedIntersectionsLocator;
 
     // Select a Service
@@ -46,6 +46,9 @@ public class PlanCalculatorPage extends BasePage {
     // SaaS Price*: $980 per month locator
     @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $980 per month')]")
     private WebElement saasPriceLocatorPulseStarter;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $2 500 per month')]")
+    private WebElement estimatedACRPricePerMonthLocator;
 
     // Estimated ACR**: $500 per month locator
     @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $500 per month')]")
@@ -81,9 +84,22 @@ public class PlanCalculatorPage extends BasePage {
         assertEqualsByWebElementExpectedText(saasPriceLocatorPulseStarter, saasPrice);
     }
 
-    public void slideToSpecificNumber(int value) {
+    public void estimatedACRPriceListed(String expectedACRPRICE) {
+        assertEqualsByWebElementExpectedText(estimatedACRPricePerMonthLocator, expectedACRPRICE);
+    }
+
+
+
+
+
+    public void slideToSpecificNumberRoadLength(int value) {
         waitVisibilityOfWebElement(sliderRoadLengthLocator);
         moveSliderKey2(sliderRoadLengthLocator, true, value);
+    }
+
+    public void slideToSpecificNumberSignalizedIntersections(int value) {
+        waitVisibilityOfWebElement(sliderSignalizedIntersectionsLocator);
+        moveSliderKey2(sliderSignalizedIntersectionsLocator, true, value);
     }
 
 
