@@ -15,6 +15,7 @@ public class PlanCalculatorPage extends BasePage {
     private WebElement planCalculatorTitleLocator;
 
     // ROAD LENGTH LOCATOR
+//    @FindBy(xpath = "//span[@class='MuiSlider-thumb MuiSlider-thumbColorPrimary jss2 jss1'][contains(.,'1 km')]")
     @FindBy(xpath = "(//span[contains(@aria-valuemin,'1')])[1]")
     private WebElement sliderRoadLengthLocator;
 
@@ -82,7 +83,7 @@ public class PlanCalculatorPage extends BasePage {
 
     public void slideToSpecificNumber(int value) {
         waitVisibilityOfWebElement(sliderRoadLengthLocator);
-        sliderLeftRight(sliderRoadLengthLocator, value);
+        moveSliderKey(sliderRoadLengthLocator, value);
     }
 
 }

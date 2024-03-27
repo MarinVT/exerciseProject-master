@@ -234,16 +234,38 @@ public class BasePage {
     public void sliderLeftRight(WebElement sliderElement, int numberMoveTo) {
         waitVisibilityOfWebElement(sliderElement);
         Actions moveSlider = new Actions(getDriver());
-        moveSlider.clickAndHold(sliderElement).pause(3).moveToElement(sliderElement)
-                .dragAndDropBy(sliderElement, 0, numberMoveTo).perform();
+        moveSlider.dragAndDropBy(sliderElement, ((numberMoveTo*-25)/100), 0).build();
     }
 
     // Slide method 2
     public void sliderLeftRight2(WebElement sliderElement, int numberMoveTo) {
         waitVisibilityOfWebElement(sliderElement);
         Actions moveSlider = new Actions(getDriver());
-        moveSlider.moveToElement(sliderElement).dragAndDropBy(sliderElement, 1,numberMoveTo).perform();
+        moveSlider.moveToElement(sliderElement)
+                .clickAndHold()
+                .dragAndDropBy(sliderElement, 8, numberMoveTo).perform();
     }
+
+    public void moveSliderKey(WebElement sliderElement, int keyPressTimes) {
+        waitVisibilityOfWebElement(sliderElement);
+        Actions moveSlider = new Actions(getDriver());
+//        moveSlider.pause(2);
+//        moveSlider.click(sliderElement).build().perform();
+
+        for(int iCount = 0; iCount <= keyPressTimes; iCount++) {
+            moveSlider.click(sliderElement).sendKeys(Keys.ARROW_UP).perform();
+        }
+    }
+
+//    Actions action = new Actions(driver);
+//        for (int i = 0; i < 5; i++)
+//    {
+//        action.DragAndDropToOffset(sliderA, 50, 0).Build().Perform();
+//        Thread.Sleep(300);
+//
+//        action.DragAndDropToOffset(sliderB, 50, 0).Build().Perform();
+//        Thread.Sleep(300);
+//    }
 
 
 
