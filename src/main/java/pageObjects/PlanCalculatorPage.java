@@ -10,48 +10,36 @@ public class PlanCalculatorPage extends BasePage {
         super();
     }
 
-    // Returns title "Plan Calculator" title from main section in black background locator
     @FindBy(xpath = "(//div[contains(.,'PLAN CALCULATOR')])[4]")
     private WebElement planCalculatorTitleLocator;
 
-    // ROAD LENGTH LOCATOR
-//    @FindBy(xpath = "//span[@class='jss5'][contains(.,'1 km')]")
     @FindBy(xpath = "(//span[@role='slider'])[1]")
     private WebElement sliderRoadLengthLocator;
 
-    // Number of Signalized Intersections LOCATOR
     @FindBy(xpath = "(//span[@role='slider'])[2]")
     private WebElement sliderSignalizedIntersectionsLocator;
 
-    // Select a Service
     @FindBy(xpath = "//div[@class='MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input'][contains(.,'X Way Pulse')]")
     private WebElement dropDownSelectServiceLocator;
 
-    // Metric locator field
     @FindBy(xpath = "//div[@class='metric active'][contains(.,'METRIC')]")
     private WebElement metricUnitSwitchLocator;
 
-    // Imperial metric
     @FindBy(xpath = "//div[@class='active'][contains(.,'IMPERIAL')]")
     private WebElement imperialUnitSwitchLocator;
 
-    // Suggested Plan locator
     @FindBy(xpath = "//div[text()='Suggested Plan']")
     private WebElement suggestedPlanTitleLocator;
 
-    // X Way Pulse Starter locator
     @FindBy(xpath = "//div[text()='X Way Pulse']")
     private WebElement xWayPulseStartedLocator;
 
-    // X Way Pulse + Twin + Neural starter title
     @FindBy(xpath = "//span[@class='PlanPricing_suggestedPlan-package__2Ennc'][contains(.,'X Way (Pulse + Twin + Neural)')]")
     private WebElement defaultTitlePulseTwinNeuralLocator;
 
-    // SaaS Price*: $980 per month locator
     @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $980 per month')]")
     private WebElement saasPriceLocatorPulseStarterLocator;
 
-    // SaaS Price*: $1 885 per month locator
     @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $1 885 per month')]")
     private WebElement saasPriceLocatorPulseStandardLocator;
 
@@ -62,8 +50,14 @@ public class PlanCalculatorPage extends BasePage {
     @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $3 420 per month')]")
     private WebElement saasPriceLocatorPulseProLocator;
 
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $1 800 per month')]")
+    private WebElement saasPricePulseTwinNeuralLocator;
+
     @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $2 500 per month')]")
     private WebElement estimatedACRPricePerMonthLocator;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $7 500 per month')]")
+    private WebElement pulseTwinNeuralGeneratedPriceLocator;
 
     @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $16 500 per month')]")
     private WebElement estimatedACRPricePerMonthStandardLocator;
@@ -71,15 +65,12 @@ public class PlanCalculatorPage extends BasePage {
     @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $41 000 per month')]")
     private WebElement estimatedACRPricePerMonthProLocator;
 
-    // Estimated ACR**: $500 per month locator
     @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $500 per month')]")
     private WebElement estimateACRlocator;
 
-    // Estimated Communication/Data Fee***: $50 per month
     @FindBy(xpath = "//div[@data-testid='plan-price-line-3'][contains(.,'Estimated Communication/Data Fee***: $50 per month')]")
     private WebElement extimatedCommunicationDataFeeLocator;
 
-    // Service X Way Pulse Twin Locators
     @FindBy(xpath = "//span[@class='PlanPricing_suggestedPlan-package__2Ennc'][contains(.,'X Way (Pulse + Twin)')]")
     private WebElement defaultTitlePulseTwinLocator;
 
@@ -89,7 +80,6 @@ public class PlanCalculatorPage extends BasePage {
     @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $6 000 per month')]")
     private WebElement pulseTwinACRPriceLocator;
 
-    // Dropdown locator
     @FindBy(xpath = "(//div[contains(.,'X Way Pulse')])[10]")
     private WebElement selectServiceXWayPulseDropDownLocator;
 
@@ -111,10 +101,6 @@ public class PlanCalculatorPage extends BasePage {
     @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $40 500 per month')]")
     private WebElement proPulseTwinACRPriceLocator;
 
-
-
-
-    // Plan calculator methods
     public void verifyPlanCalculatorTitle(String expectedTitle) {
         assertEqualsByWebElementExpectedText(planCalculatorTitleLocator, expectedTitle);
     }
@@ -218,6 +204,15 @@ public class PlanCalculatorPage extends BasePage {
     public void defaultPulseTwinNeuralTitle(String defaultSaasPrice) {
         assertEqualsByWebElementExpectedText(defaultTitlePulseTwinNeuralLocator, defaultSaasPrice);
     }
+
+    public void pulseTwinNeuralGeneratedPrice(String saasPrice) {
+        assertEqualsByWebElementExpectedText(saasPricePulseTwinNeuralLocator, saasPrice);
+    }
+
+    public void pulseTwinNeuralGeneratedACRPrice(String acrPrice) {
+        assertEqualsByWebElementExpectedText(pulseTwinNeuralGeneratedPriceLocator, acrPrice);
+    }
+
 
 
 }

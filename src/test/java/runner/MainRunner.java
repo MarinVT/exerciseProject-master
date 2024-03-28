@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features = {"classpath:features"},
-        tags = "@neu",
+        tags = "@neural",
         glue = {"stepDefinitions"},
         monochrome = true,
         dryRun = false,
