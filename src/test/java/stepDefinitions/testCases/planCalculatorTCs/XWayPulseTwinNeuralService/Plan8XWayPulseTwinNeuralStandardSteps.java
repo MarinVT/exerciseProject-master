@@ -13,8 +13,8 @@ public class Plan8XWayPulseTwinNeuralStandardSteps {
         this.planCalculatorPage = planCalculatorPage;
     }
 
-    @Given("User opens {string} to use X Way Pulse Twin Standard Starter and generated SaaS Price")
-    public void user_opens_to_use_x_way_pulse_twin_standard_starter_and_generated_saa_s_price(String url) {
+    @Given("User opens {string} to use X Way Pulse Twin Neural Standard and generated SaaS Price")
+    public void user_opens_to_use_x_way_pulse_twin_standard_and_generated_saa_s_price(String url) {
         planCalculatorPage.navigateToSiteURL(url);
     }
 

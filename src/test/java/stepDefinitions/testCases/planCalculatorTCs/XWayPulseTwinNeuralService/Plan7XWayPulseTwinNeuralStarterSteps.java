@@ -46,7 +46,6 @@ public class Plan7XWayPulseTwinNeuralStarterSteps {
     @And("User sees generated Estimated  ACR**: {string}")
     public void user_sees_generated_estimated_acr(String expectedACRPrice) throws InterruptedException {
         planCalculatorPage.pulseTwinNeuralGeneratedACRPrice(expectedACRPrice);
-        Thread.sleep(3000);
     }
 
 }

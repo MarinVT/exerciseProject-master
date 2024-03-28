@@ -37,7 +37,7 @@ public class DriverFactory {
                 break;
             case "firefox":
                 FirefoxOptions options = new FirefoxOptions();
-//                options.setBinary("/usr/lib/firefox/firefox");
+                options.setBinary("/usr/lib/firefox/firefox");
                 driver = new FirefoxDriver(options);
                 driver.manage().deleteAllCookies();
 //                     WebDriverManager.firefoxdriver().setup();

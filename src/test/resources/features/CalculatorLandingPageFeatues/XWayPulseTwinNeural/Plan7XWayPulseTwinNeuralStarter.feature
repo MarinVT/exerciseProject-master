@@ -1,4 +1,4 @@
-@neural
+@neural3
 
 Feature: Calculator Plan 7 X Way Pulse Twin Neural Starter
 

@@ -19,7 +19,9 @@ public class PlanCalculatorPage extends BasePage {
     @FindBy(xpath = "(//span[@role='slider'])[2]")
     private WebElement sliderSignalizedIntersectionsLocator;
 
-    @FindBy(xpath = "//div[@class='MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input'][contains(.,'X Way Pulse')]")
+//    @FindBy(xpath = "//div[@class='MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input'][contains(.,'X Way Pulse')]")
+
+    @FindBy(xpath = "(//div[@role='button'])[1]")
     private WebElement dropDownSelectServiceLocator;
 
     @FindBy(xpath = "//div[@class='metric active'][contains(.,'METRIC')]")
@@ -105,7 +107,15 @@ public class PlanCalculatorPage extends BasePage {
     private WebElement proPulseTwinNeuralSaasPriceLocator;
 
     @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $36 500 per month')]")
-    private WebElement proPulseTwinNeuralACRPriceLocator;
+    private WebElement proPulseTwinNeuralStandardACRPriceLocator;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $77 500 per month')]")
+    private WebElement proPulseTwinNeuralProACRPriceLocator;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $5 985 per month')]")
+    private WebElement proPulseTwinNeuralGeneratedSaasPrice;
+
+
 
     public void verifyPlanCalculatorTitle(String expectedTitle) {
         assertEqualsByWebElementExpectedText(planCalculatorTitleLocator, expectedTitle);
@@ -220,11 +230,20 @@ public class PlanCalculatorPage extends BasePage {
     }
 
     public void pulseTwinNeuralStandardGeneratedACRPrice(String acrPrice) {
-        assertEqualsByWebElementExpectedText(proPulseTwinNeuralACRPriceLocator, acrPrice);
+        assertEqualsByWebElementExpectedText(proPulseTwinNeuralStandardACRPriceLocator, acrPrice);
     }
 
     public void pulseTwinNeuralStandardGeneratedSaasPrice(String acrPrice) {
         assertEqualsByWebElementExpectedText(proPulseTwinNeuralSaasPriceLocator, acrPrice);
     }
+
+    public void pulseTwinNeuralProdGeneratedACRPrice(String acrPrice) {
+        assertEqualsByWebElementExpectedText(proPulseTwinNeuralProACRPriceLocator, acrPrice);
+    }
+
+    public void pulseTwinNeuralProdGeneratedSaasPrice(String saasPrice) {
+        assertEqualsByWebElementExpectedText(proPulseTwinNeuralGeneratedSaasPrice, saasPrice);
+    }
+
 
 }
