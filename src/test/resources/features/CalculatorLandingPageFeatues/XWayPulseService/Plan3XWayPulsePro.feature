@@ -1,4 +1,4 @@
-@functional
+
 
 Feature: Calculator Plan 3 X Way Pulse Pro
 

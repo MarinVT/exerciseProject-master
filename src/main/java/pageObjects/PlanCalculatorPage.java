@@ -21,7 +21,7 @@ public class PlanCalculatorPage extends BasePage {
 
 //    @FindBy(xpath = "//div[@class='MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input'][contains(.,'X Way Pulse')]")
 
-    @FindBy(xpath = "(//div[@role='button'])[1]")
+    @FindBy(xpath = "//div[@class='MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input'][contains(.,'X Way Pulse')]")
     private WebElement dropDownSelectServiceLocator;
 
     @FindBy(xpath = "//div[@class='metric active'][contains(.,'METRIC')]")
@@ -41,6 +41,9 @@ public class PlanCalculatorPage extends BasePage {
 
     @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $980 per month')]")
     private WebElement saasPriceLocatorPulseStarterLocator;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $1 350 per month')]")
+    private WebElement saasPriceGeneratedPulseTwin;
 
     @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $1 885 per month')]")
     private WebElement saasPriceLocatorPulseStandardLocator;
@@ -114,6 +117,9 @@ public class PlanCalculatorPage extends BasePage {
 
     @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $5 985 per month')]")
     private WebElement proPulseTwinNeuralGeneratedSaasPrice;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $9 500 per month')]")
+    private WebElement estimatedACRPricePulseTwin;
 
 
 
@@ -190,11 +196,11 @@ public class PlanCalculatorPage extends BasePage {
     }
 
     public void starterSaasPricePulseTwin(String expectedPricePulseTwin) {
-        assertEqualsByWebElementExpectedText(defaultSaasPricePulseTwinLocator, expectedPricePulseTwin);
+        assertEqualsByWebElementExpectedText(saasPriceGeneratedPulseTwin, expectedPricePulseTwin);
     }
 
     public void starterACRPricePulseTwin(String expectedStarterACRPRICEPulseTwin) {
-        assertEqualsByWebElementExpectedText(pulseTwinACRPriceLocator, expectedStarterACRPRICEPulseTwin);
+        assertEqualsByWebElementExpectedText(estimatedACRPricePulseTwin, expectedStarterACRPRICEPulseTwin);
     }
 
     public void standardSaasPricePulseTwin(String expectedPricePulseTwin) {

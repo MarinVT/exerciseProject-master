@@ -1,4 +1,4 @@
-@neural3
+@neural
 Feature: Calculator default values of plan 7 X Way (Pulse + Twin + Neural) Starter
 
   Scenario: User should see default values for each slider, suggested plan title and saas price

@@ -1,5 +1,4 @@
-@neural3
-
+@neural
 Feature: Calculator Plan 8 X Way Pulse Twin Neural Pro
 
   Scenario: User is using X Way Pulse Twin Neural Pro Plan 9 to calculate expected Saas Price financially beneficial

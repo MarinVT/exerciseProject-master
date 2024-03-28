@@ -13,32 +13,39 @@ public class Plan4XWayPulseTwinStarterSteps {
         this.planCalculatorPage = planCalculatorPage;
     }
 
-    @Given("User opens {string} to use X Way Pulse Twin Starter and generated SaaS Price")
-    public void user_opens_to_use_x_way_pulse_twin_starter_and_generated_saa_s_price(String url) {
+
+    @Given("User opens {string} to use X Way Pulse Twin Starter plan4 and generated SaaS Price")
+    public void user_opens_to_use_x_way_pulse_twin_starter_plan4_and_generated_saa_s_price(String url) {
         planCalculatorPage.navigateToSiteURL(url);
     }
-    @And("User is using {string} unit")
-    public void user_is_using_unit(String unitMetric) {
+
+    @Given("User has a added by default unit switcher to {string}")
+    public void user_has_a_added_by_default_unit_switcher_to(String unitMetric) {
         planCalculatorPage.metricSwitcherDefaultMetric(unitMetric);
     }
-    @And("User selects a service {string} from dropdown field Select a Service")
-    public void user_selects_a_service_from_dropdown_field_select_a_service(String selectServicePulseTwin) {
+
+    @Given("User has selected {string} from dropdown Select a Service")
+    public void user_has_selected_from_dropdown_select_a_service(String selectServicePulseTwin) {
         planCalculatorPage.selectPlanDropdownPulseTwinService(selectServicePulseTwin);
     }
-    @And("User slides the Road Length  to value of {int} km")
-    public void user_slides_the_road_length_to_value_of_twenty_km(int roadLengthNumber) {
+
+    @Given("User slides to {int} km in Road Length slider to generate Saas price")
+    public void user_slides_to_km_in_road_length_slider_to_generate_saas_price(int roadLengthNumber) {
         planCalculatorPage.slideToSpecificNumberRoadLength(roadLengthNumber);
     }
-    @And("User slides the Number of Signalized Intersections equal {int}")
-    public void user_slides_the_number_of_signalized_intersections_equal(int numberOfIntersections) {
+
+    @Given("User slides  to {int} total count of Signalized Intersections slider")
+    public void user_slides_to_total_count_of_signalized_intersections_slider(int numberOfIntersections) {
         planCalculatorPage.slideToSpecificNumberSignalizedIntersections(numberOfIntersections);
     }
-    @Then("User sees generated SaaS price of {string}")
-    public void user_sees_generated_saa_s_price_of(String expectedSaasPrice) {
+
+    @Then("User sees the  calculated SaaS price {string}")
+    public void user_sees_the_calculated_saa_s_price(String expectedSaasPrice) {
         planCalculatorPage.starterSaasPricePulseTwin(expectedSaasPrice);
     }
-    @And("User sees generated Estimated ACR**: {string}")
-    public void user_sees_generated_estimated_acr(String expectedACRPrice) throws InterruptedException {
+
+    @Then("User sees the  calculated Estimated ACR**: {string}")
+    public void user_sees_the_calculated_estimated_acr(String expectedACRPrice) {
         planCalculatorPage.starterACRPricePulseTwin(expectedACRPrice);
     }
 

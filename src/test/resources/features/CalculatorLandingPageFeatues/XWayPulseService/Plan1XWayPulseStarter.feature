@@ -1,4 +1,4 @@
-@functional
+
 
 Feature: Calculator Plan 1 X Way Pulse Starter
 
