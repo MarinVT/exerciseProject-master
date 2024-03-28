@@ -88,10 +88,6 @@ public class PlanCalculatorPage extends BasePage {
         assertEqualsByWebElementExpectedText(estimatedACRPricePerMonthLocator, expectedACRPRICE);
     }
 
-
-
-
-
     public void slideToSpecificNumberRoadLength(int value) {
         waitVisibilityOfWebElement(sliderRoadLengthLocator);
         moveSliderKey2(sliderRoadLengthLocator, true, value);
