@@ -5,11 +5,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pageObjects.PlanCalculatorPage;
 
-public class XWayPulseTwinServiceSteps {
+public class Plan4XWayPulseTwinStarterSteps {
 
     private PlanCalculatorPage planCalculatorPage;
 
-    public XWayPulseTwinServiceSteps(PlanCalculatorPage planCalculatorPage) {
+    public Plan4XWayPulseTwinStarterSteps(PlanCalculatorPage planCalculatorPage) {
         this.planCalculatorPage = planCalculatorPage;
     }
 
@@ -23,7 +23,7 @@ public class XWayPulseTwinServiceSteps {
     }
     @And("User selects a service {string} from dropdown field Select a Service")
     public void user_selects_a_service_from_dropdown_field_select_a_service(String selectServicePulseTwin) {
-        planCalculatorPage.selectPlanDropdown(selectServicePulseTwin);
+        planCalculatorPage.selectPlanDropdownPulseTwinService(selectServicePulseTwin);
     }
     @And("User slides the Road Length  to value of {int} km")
     public void user_slides_the_road_length_to_value_of_twenty_km(int roadLengthNumber) {

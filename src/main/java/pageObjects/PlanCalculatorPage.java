@@ -43,6 +43,10 @@ public class PlanCalculatorPage extends BasePage {
     @FindBy(xpath = "//div[text()='X Way Pulse']")
     private WebElement xWayPulseStartedLocator;
 
+    // X Way Pulse + Twin + Neural starter title
+    @FindBy(xpath = "//span[@class='PlanPricing_suggestedPlan-package__2Ennc'][contains(.,'X Way (Pulse + Twin + Neural)')]")
+    private WebElement defaultTitlePulseTwinNeuralLocator;
+
     // SaaS Price*: $980 per month locator
     @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $980 per month')]")
     private WebElement saasPriceLocatorPulseStarterLocator;
@@ -50,6 +54,9 @@ public class PlanCalculatorPage extends BasePage {
     // SaaS Price*: $1 885 per month locator
     @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $1 885 per month')]")
     private WebElement saasPriceLocatorPulseStandardLocator;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $1 680 per month')]")
+    private WebElement saasPriceLocatorPulseTwinNeuralLocator;
 
     // SaaS Price*: $3 420 per month locator
     @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $3 420 per month')]")
@@ -84,10 +91,28 @@ public class PlanCalculatorPage extends BasePage {
 
     // Dropdown locator
     @FindBy(xpath = "(//div[contains(.,'X Way Pulse')])[10]")
-    private WebElement selectServiceDropDownLocator;
+    private WebElement selectServiceXWayPulseDropDownLocator;
 
     @FindBy(xpath = "//li[contains(@data-value,'X Way (Pulse + Twin)')]")
-    private WebElement selectServiceOptionPulseTwin;
+    private WebElement selectServiceOptionPulseTwinDropdown;
+
+    @FindBy(xpath = "//li[contains(.,'X Way (Pulse + Twin + Neural)')]")
+    private WebElement selectServiceOptionPulseTwinNeuralDropdown;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $2 320 per month')]")
+    private WebElement standardPulseTwinGeneratedPriceLocator;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $22 000 per month')]")
+    private WebElement standardPulseTwinGeneratedACRPriceLocator;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $4 275 per month')]")
+    private WebElement proPulseTwinSaasPriceLocator;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $40 500 per month')]")
+    private WebElement proPulseTwinACRPriceLocator;
+
+
+
 
     // Plan calculator methods
     public void verifyPlanCalculatorTitle(String expectedTitle) {
@@ -144,6 +169,16 @@ public class PlanCalculatorPage extends BasePage {
         moveSliderKey2(sliderSignalizedIntersectionsLocator, true, value);
     }
 
+    public void selectPlanDropdownPulseTwinService(String selectService) {
+        waitElementAndClickOnIt(dropDownSelectServiceLocator);
+        waitElementAndClickOnIt(selectServiceOptionPulseTwinDropdown);
+    }
+
+    public void selectPlanDropdownPulseTwinNeuralService(String selectService) {
+        waitElementAndClickOnIt(dropDownSelectServiceLocator);
+        waitElementAndClickOnIt(selectServiceOptionPulseTwinNeuralDropdown);
+    }
+
     public void defaultSaasPricePulseTwin(String expectedPricePulseTwin) {
         assertEqualsByWebElementExpectedText(defaultSaasPricePulseTwinLocator, expectedPricePulseTwin);
     }
@@ -160,9 +195,29 @@ public class PlanCalculatorPage extends BasePage {
         assertEqualsByWebElementExpectedText(pulseTwinACRPriceLocator, expectedStarterACRPRICEPulseTwin);
     }
 
-    public void selectPlanDropdown(String selectService) {
-        waitElementAndClickOnIt(dropDownSelectServiceLocator);
-        waitElementAndClickOnIt(selectServiceOptionPulseTwin);
+    public void standardSaasPricePulseTwin(String expectedPricePulseTwin) {
+        assertEqualsByWebElementExpectedText(standardPulseTwinGeneratedPriceLocator, expectedPricePulseTwin);
     }
+
+    public void standardACRPricePulseTwin(String expectedStarterACRPRICEPulseTwin) {
+        assertEqualsByWebElementExpectedText(standardPulseTwinGeneratedACRPriceLocator, expectedStarterACRPRICEPulseTwin);
+    }
+
+    public void proPulseTwinSaasPrice(String expectedPricePulseTwin) {
+        assertEqualsByWebElementExpectedText(proPulseTwinSaasPriceLocator, expectedPricePulseTwin);
+    }
+
+    public void proACRPricePulseTwin(String expectedStarterACRPRICEPulseTwin) {
+        assertEqualsByWebElementExpectedText(proPulseTwinACRPriceLocator, expectedStarterACRPRICEPulseTwin);
+    }
+
+    public void defaultSaasPricePulseTwinNeural(String defaultSaasPrice) {
+        assertEqualsByWebElementExpectedText(saasPriceLocatorPulseTwinNeuralLocator, defaultSaasPrice);
+    }
+
+    public void defaultPulseTwinNeuralTitle(String defaultSaasPrice) {
+        assertEqualsByWebElementExpectedText(defaultTitlePulseTwinNeuralLocator, defaultSaasPrice);
+    }
+
 
 }

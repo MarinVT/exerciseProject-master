@@ -1,4 +1,4 @@
-@smoke1
+@smoke
 Feature: Calculator default values of X Way Pulse
 
   Scenario: User should see default values for each slider and dropdown field

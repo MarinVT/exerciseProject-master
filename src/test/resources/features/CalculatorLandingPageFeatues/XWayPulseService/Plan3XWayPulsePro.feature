@@ -1,6 +1,6 @@
 @functional
 
-Feature: Calculator Plan 2 X Way Pulse Pro
+Feature: Calculator Plan 3 X Way Pulse Pro
 
   Scenario: User is using X Way Pulse Pro Plan 3 to calculate expected Saas Price financially beneficial
     Given User opens "https://axilion.z6.web.core.windows.net/#/" to use X Way Pulse Pro and generated SaaS Price

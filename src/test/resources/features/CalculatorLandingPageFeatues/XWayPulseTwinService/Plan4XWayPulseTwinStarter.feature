@@ -1,4 +1,4 @@
-@pulse
+
 
 Feature: Calculator Plan 4 X Way Pulse Twin Starter
 

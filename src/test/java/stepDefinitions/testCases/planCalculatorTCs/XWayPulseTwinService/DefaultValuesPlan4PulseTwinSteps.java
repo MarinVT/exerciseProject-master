@@ -28,7 +28,7 @@ DefaultValuesPlan4PulseTwinSteps {
     }
     @And("User pick ups {string} from the dropdown Select a Service")
     public void user_pick_ups_from_the_dropdown_select_a_service(String selectTwinPulseService)  {
-        planCalculatorPage.selectPlanDropdown(selectTwinPulseService);
+        planCalculatorPage.selectPlanDropdownPulseTwinService(selectTwinPulseService);
     }
     @Then("User sees Saas Price equal to {string}")
     public void user_sees_saas_price_equal_to(String expectedInitialSaasPriceValue) {

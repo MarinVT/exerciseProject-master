@@ -18,7 +18,7 @@ public class Plan1XwayPulseStarterSteps {
         planCalculatorPage.navigateToSiteURL(url);
     }
 
-    @And("User is using unit switcher {string}")
+    @And("User is using unit switcher metric {string}")
     public void user_is_using_unit_switcher(String metricUnitSwitcher)  {
         planCalculatorPage.metricSwitcherDefaultMetric(metricUnitSwitcher);
     }
@@ -31,19 +31,22 @@ public class Plan1XwayPulseStarterSteps {
     public void user_sets_road_length_equal_to_value_of_twenty_km(int value) {
         planCalculatorPage.slideToSpecificNumberRoadLength(value);
     }
+
+    @And("User selects Number of Signalized Intersections equal {int}")
+    public void user_selects_number_of_signalized_intersections_equal(int signalizedNumberOfIntersections) throws InterruptedException {
+        planCalculatorPage.slideToSpecificNumberSignalizedIntersections(signalizedNumberOfIntersections);
+    }
+
     @Then("User gets SaaS price of {string}")
     public void user_gets_saa_s_price_of(String expectedSaasPrice) throws InterruptedException {
         planCalculatorPage.saasPricePulseStarter(expectedSaasPrice);
     }
+
     @And("User get Estimated ACR**: {string}")
     public void user_get_estimated_acr(String expectedAcrPrice) {
         planCalculatorPage.estimatedACRPriceListed(expectedAcrPrice);
     }
 
-    @And("User selects Number of Signalized Intersections equal {int}")
-    public void user_selects_number_of_signalized_intersections_equal(int signalizedNumberOfIntersections) throws InterruptedException {
-        planCalculatorPage.slideToSpecificNumberSignalizedIntersections(signalizedNumberOfIntersections);
-        Thread.sleep(3000);
-    }
+
 
 }

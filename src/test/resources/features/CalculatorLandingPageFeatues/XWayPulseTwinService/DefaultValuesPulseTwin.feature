@@ -1,4 +1,5 @@
-@pulse
+
+
 Feature: Calculator default values of plan 4 X Way (Pulse + Twin) Starter
 
   Scenario: User should see default values for each slider, suggested plan title and saas price
