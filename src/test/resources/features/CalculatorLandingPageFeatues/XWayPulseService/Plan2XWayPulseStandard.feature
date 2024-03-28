@@ -1,4 +1,4 @@
-@functional1
+@functional
 
 Feature: Calculator Plan 2 X Way Pulse Standard
 

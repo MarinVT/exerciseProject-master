@@ -25,7 +25,7 @@ public class PlanCalculatorPage extends BasePage {
 
     // Select a Service
     @FindBy(xpath = "//div[@class='MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input'][contains(.,'X Way Pulse')]")
-    private WebElement dropDownSelectService;
+    private WebElement dropDownSelectServiceLocator;
 
     // Metric locator field
     @FindBy(xpath = "//div[@class='metric active'][contains(.,'METRIC')]")
@@ -45,17 +45,24 @@ public class PlanCalculatorPage extends BasePage {
 
     // SaaS Price*: $980 per month locator
     @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $980 per month')]")
-    private WebElement saasPriceLocatorPulseStarter;
+    private WebElement saasPriceLocatorPulseStarterLocator;
 
     // SaaS Price*: $1 885 per month locator
     @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $1 885 per month')]")
-    private WebElement saasPriceLocatorPulseStandard;
+    private WebElement saasPriceLocatorPulseStandardLocator;
+
+    // SaaS Price*: $3 420 per month locator
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $3 420 per month')]")
+    private WebElement saasPriceLocatorPulseProLocator;
 
     @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $2 500 per month')]")
     private WebElement estimatedACRPricePerMonthLocator;
 
     @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $16 500 per month')]")
     private WebElement estimatedACRPricePerMonthStandardLocator;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $41 000 per month')]")
+    private WebElement estimatedACRPricePerMonthProLocator;
 
     // Estimated ACR**: $500 per month locator
     @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $500 per month')]")
@@ -65,6 +72,22 @@ public class PlanCalculatorPage extends BasePage {
     @FindBy(xpath = "//div[@data-testid='plan-price-line-3'][contains(.,'Estimated Communication/Data Fee***: $50 per month')]")
     private WebElement extimatedCommunicationDataFeeLocator;
 
+    // Service X Way Pulse Twin Locators
+    @FindBy(xpath = "//span[@class='PlanPricing_suggestedPlan-package__2Ennc'][contains(.,'X Way (Pulse + Twin)')]")
+    private WebElement defaultTitlePulseTwinLocator;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $1 260 per month')]")
+    private WebElement defaultSaasPricePulseTwinLocator;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $6 000 per month')]")
+    private WebElement pulseTwinACRPriceLocator;
+
+    // Dropdown locator
+    @FindBy(xpath = "(//div[contains(.,'X Way Pulse')])[10]")
+    private WebElement selectServiceDropDownLocator;
+
+    @FindBy(xpath = "//li[contains(@data-value,'X Way (Pulse + Twin)')]")
+    private WebElement selectServiceOptionPulseTwin;
 
     // Plan calculator methods
     public void verifyPlanCalculatorTitle(String expectedTitle) {
@@ -80,7 +103,7 @@ public class PlanCalculatorPage extends BasePage {
     }
 
     public void defaultValueSelectService(String defaultValueSelectService) {
-        assertEqualsByWebElementExpectedText(dropDownSelectService, defaultValueSelectService);
+        assertEqualsByWebElementExpectedText(dropDownSelectServiceLocator, defaultValueSelectService);
     }
 
     public void metricSwitcherDefaultMetric(String metricSwitcher) {
@@ -88,10 +111,15 @@ public class PlanCalculatorPage extends BasePage {
     }
 
     public void saasPricePulseStarter(String saasPrice) {
-        assertEqualsByWebElementExpectedText(saasPriceLocatorPulseStarter, saasPrice);
+        assertEqualsByWebElementExpectedText(saasPriceLocatorPulseStarterLocator, saasPrice);
     }
+
     public void saasPricePulseStandard(String saasPrice) {
-        assertEqualsByWebElementExpectedText(saasPriceLocatorPulseStandard, saasPrice);
+        assertEqualsByWebElementExpectedText(saasPriceLocatorPulseStandardLocator, saasPrice);
+    }
+
+    public void saasPricePulsePro(String saasPrice) {
+        assertEqualsByWebElementExpectedText(saasPriceLocatorPulseProLocator, saasPrice);
     }
 
     public void estimatedACRPriceListed(String expectedACRPRICE) {
@@ -100,6 +128,10 @@ public class PlanCalculatorPage extends BasePage {
 
     public void estimatedACRPriceStandardListed(String expectedACRPRICE) {
         assertEqualsByWebElementExpectedText(estimatedACRPricePerMonthStandardLocator, expectedACRPRICE);
+    }
+
+    public void estimatedACRPriceProListed(String expectedACRPRICE) {
+        assertEqualsByWebElementExpectedText(estimatedACRPricePerMonthProLocator, expectedACRPRICE);
     }
 
     public void slideToSpecificNumberRoadLength(int value) {
@@ -112,5 +144,25 @@ public class PlanCalculatorPage extends BasePage {
         moveSliderKey2(sliderSignalizedIntersectionsLocator, true, value);
     }
 
+    public void defaultSaasPricePulseTwin(String expectedPricePulseTwin) {
+        assertEqualsByWebElementExpectedText(defaultSaasPricePulseTwinLocator, expectedPricePulseTwin);
+    }
+
+    public void defaultTitlePulseTwin(String expectedTitlePulseTwin) {
+        assertEqualsByWebElementExpectedText(defaultTitlePulseTwinLocator, expectedTitlePulseTwin);
+    }
+
+    public void starterSaasPricePulseTwin(String expectedPricePulseTwin) {
+        assertEqualsByWebElementExpectedText(defaultSaasPricePulseTwinLocator, expectedPricePulseTwin);
+    }
+
+    public void starterACRPricePulseTwin(String expectedStarterACRPRICEPulseTwin) {
+        assertEqualsByWebElementExpectedText(pulseTwinACRPriceLocator, expectedStarterACRPRICEPulseTwin);
+    }
+
+    public void selectPlanDropdown(String selectService) {
+        waitElementAndClickOnIt(dropDownSelectServiceLocator);
+        waitElementAndClickOnIt(selectServiceOptionPulseTwin);
+    }
 
 }

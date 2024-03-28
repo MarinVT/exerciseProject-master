@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features = {"classpath:features"},
-        tags = "@functional1",
+        tags = "@pulse",
         glue = {"stepDefinitions"},
         monochrome = true,
         dryRun = false,

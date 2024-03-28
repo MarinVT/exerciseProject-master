@@ -1,14 +1,14 @@
-package stepDefinitions.testCases.planCalculatorTCs;
+package stepDefinitions.testCases.planCalculatorTCs.XWayPulseService;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import pageObjects.PlanCalculatorPage;
 
-public class DefaultValuesCalculatorSteps {
+public class DefaultValuesXWayPulseSteps {
 
     private PlanCalculatorPage planCalculatorPage;
 
-    public DefaultValuesCalculatorSteps(PlanCalculatorPage planCalculatorPage) {
+    public DefaultValuesXWayPulseSteps(PlanCalculatorPage planCalculatorPage) {
         this.planCalculatorPage = planCalculatorPage;
     }
 

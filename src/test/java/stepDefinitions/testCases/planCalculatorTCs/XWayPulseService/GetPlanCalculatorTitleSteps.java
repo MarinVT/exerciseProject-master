@@ -1,4 +1,4 @@
-package stepDefinitions.testCases.planCalculatorTCs;
+package stepDefinitions.testCases.planCalculatorTCs.XWayPulseService;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
