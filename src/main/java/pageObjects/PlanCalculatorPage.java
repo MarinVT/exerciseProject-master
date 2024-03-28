@@ -101,6 +101,12 @@ public class PlanCalculatorPage extends BasePage {
     @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $40 500 per month')]")
     private WebElement proPulseTwinACRPriceLocator;
 
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-1'][contains(.,'SaaS Price*: $4 255 per month')]")
+    private WebElement proPulseTwinNeuralSaasPriceLocator;
+
+    @FindBy(xpath = "//div[@data-testid='plan-price-line-2'][contains(.,'Estimated ACR**: $36 500 per month')]")
+    private WebElement proPulseTwinNeuralACRPriceLocator;
+
     public void verifyPlanCalculatorTitle(String expectedTitle) {
         assertEqualsByWebElementExpectedText(planCalculatorTitleLocator, expectedTitle);
     }
@@ -213,6 +219,12 @@ public class PlanCalculatorPage extends BasePage {
         assertEqualsByWebElementExpectedText(pulseTwinNeuralGeneratedPriceLocator, acrPrice);
     }
 
+    public void pulseTwinNeuralStandardGeneratedACRPrice(String acrPrice) {
+        assertEqualsByWebElementExpectedText(proPulseTwinNeuralACRPriceLocator, acrPrice);
+    }
 
+    public void pulseTwinNeuralStandardGeneratedSaasPrice(String acrPrice) {
+        assertEqualsByWebElementExpectedText(proPulseTwinNeuralSaasPriceLocator, acrPrice);
+    }
 
 }
